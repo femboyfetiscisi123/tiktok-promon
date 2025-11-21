@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Callback Sayfası</title></head>
+<body>
+  <h1>OAuth sonucu</h1>
+  <pre id="out"></pre>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("out").textContent = "CODE: " + params.get("code");
+  </script>
+</body>
+</html>
