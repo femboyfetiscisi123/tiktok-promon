@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head><title>Callback Sayfası</title></head>
+<head>
+  <meta charset="utf-8" />
+  <title>Callback</title>
+</head>
 <body>
-  <h1>OAuth sonucu</h1>
-  <pre id="out"></pre>
+  <h1>OAuth Callback</h1>
+  <p>Sayfaya gelen parametreler:</p>
+  <pre id="out">Bekleniyor...</pre>
+
+  <button id="copy">Code'u kopyala</button>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    document.getElementById("out").textContent = "CODE: " + params.get("code");
+    const code = params.get("code");
+    const state = params.get("state");
+
+    document.getElementById("out").textContent =
+      JSON.stringify({ code, state, all: Object.fromEntries(params.entries()) }, null, 2);
+
+    document.getElementById("copy").onclick = () => {
+      if (!code) return alert("Code yok!");
+      navigator.clipboard.writeText(code);
+      alert("Code kopyalandı:\n" + code);
+    };
   </script>
 </body>
 </html>
