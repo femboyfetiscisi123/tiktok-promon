@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TikTok OAuth Login</title>
+</head>
+<body>
+  <h1>TikTok Login</h1>
+  <a id="login">Login with TikTok</a>
+
+  <script>
+    const CLIENT_KEY = "awo9csttvrezs01m"; // TikTok panelden
+    const REDIRECT_URI = "https://femboyfetiscisi123.github.io/tiktok-promon/callback.html";
+
+    document.getElementById("login").href =
+      `https://www.tiktok.com/v2/auth/authorize/?client_key=${CLIENT_KEY}&scope=user.info.basic&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&state=12345`;
+  </script>
+</body>
+</html>
